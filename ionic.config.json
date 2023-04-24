@@ -1,0 +1,7 @@
+{
+  "name": "AppPrecioLuz",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

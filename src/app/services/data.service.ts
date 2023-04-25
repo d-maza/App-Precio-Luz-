@@ -1,83 +1,87 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Message } from 'src/modules/Message';
 
-export interface Message {
-  fromName: string;
-  subject: string;
-  date: string;
-  id: number;
-  read: boolean;
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  public messages: Message[] = [
-    {
-      fromName: 'Matt Chorsey',
-      subject: 'New event: Trip to Vegas',
-      date: '9:32 AM',
-      id: 0,
-      read: false
-    },
-    {
-      fromName: 'Lauren Ruthford',
-      subject: 'Long time no chat',
-      date: '6:12 AM',
-      id: 1,
-      read: false
-    },
-    {
-      fromName: 'Jordan Firth',
-      subject: 'Report Results',
-      date: '4:55 AM',
-      id: 2,
-      read: false
-    },
-    {
-      fromName: 'Bill Thomas',
-      subject: 'The situation',
-      date: 'Yesterday',
-      id: 3,
-      read: false
-    },
-    {
-      fromName: 'Joanne Pollan',
-      subject: 'Updated invitation: Swim lessons',
-      date: 'Yesterday',
-      id: 4,
-      read: false
-    },
-    {
-      fromName: 'Andrea Cornerston',
-      subject: 'Last minute ask',
-      date: 'Yesterday',
-      id: 5,
-      read: false
-    },
-    {
-      fromName: 'Moe Chamont',
-      subject: 'Family Calendar - Version 1',
-      date: 'Last Week',
-      id: 6,
-      read: false
-    },
-    {
-      fromName: 'Kelly Richardson',
-      subject: 'Placeholder Headhots',
-      date: 'Last Week',
-      id: 7,
-      read: false
+  private uriNow = 'https://api.preciodelaluz.org/v1/prices/now?zone=PCB';
+  private uriAvg = 'https://api.preciodelaluz.org/v1/prices/avg?zone=PCB';
+  private uriAllZone = 'https://api.preciodelaluz.org/v1/prices/all?zone=PCB';
+  private uriPriceMax = 'https://api.preciodelaluz.org/v1/prices/max?zone=PCB';
+  private uriPriceMin = 'https://api.preciodelaluz.org/v1/prices/min?zone=PCB';
+  private uriHappyHour = 'https://api.preciodelaluz.org/v1/prices/cheapests?zone=PCB&n=3';
+
+  constructor(
+   private http: HttpClient
+  ) { }
+
+
+  public getNow(): Observable <Message[]> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json', 
+        'Access-Control-Allow-Origin': '*',
+    }),
+    };
+    return this.http.get<Message[]>(this.uriNow, options);
+
+  }
+  
+  public getAvg(): Observable <Message[]> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json', 
+        'Access-Control-Allow-Origin': '*',
+    }),
+    };
+    return this.http.get<Message[]>(this.uriAvg, options);
+
+  }
+  
+  public getAllZone(): Observable <Message[]> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json', 
+        'Access-Control-Allow-Origin': '*',
+    }),
+    };
+    return this.http.get<Message[]>(this.uriAllZone, options);
+
+  }
+  
+  public getPriceMax(): Observable <Message[]> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json', 
+        'Access-Control-Allow-Origin': '*',
+    }),
+    };
+    return this.http.get<Message[]>(this.uriPriceMax, options);
+
+  }
+  public getPriceMin(): Observable <Message[]> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json', 
+        'Access-Control-Allow-Origin': '*',
+    }),
+    };
+    return this.http.get<Message[]>(this.uriPriceMin, options);
+
+  }
+  public getHappyHour(): Observable <Message[]> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json', 
+        'Access-Control-Allow-Origin': '*',
+    }),
+    };
+    return this.http.get<Message[]>(this.uriHappyHour, options);
+
     }
-  ];
 
-  constructor() { }
-
-  public getMessages(): Message[] {
-    return this.messages;
-  }
-
-  public getMessageById(id: number): Message {
-    return this.messages[id];
-  }
 }

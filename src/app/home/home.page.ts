@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
-import { MessageComponent } from '../message/message.component';
+import { DataService } from '../services/data.service';
+import { Message } from 'src/modules/Message';
 
-import { DataService, Message } from '../services/data.service';
+
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,12 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  datos: Message[] = [];
+  datosFull: Message[] = [];
+  datosAvg: Message[] = [];
+  datosPriceMin:Message[]=[];
+  datosPriceMax: Message[] = [];
+  datosHappyHour: Message[]=[];
   private data = inject(DataService);
   constructor() {}
 
@@ -19,7 +26,54 @@ export class HomePage {
     }, 3000);
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
+  ngOnInit() {
+    this.getNow();
+    this.getAllZone();
+    this.getAvg();
+    this.getPriceMin();
+    this.getPriceMax();
+    this.getHappyHour();
   }
+
+
+  getNow() {
+    this.data.getNow().subscribe((res) => {
+      this.datos = (Object.values(res));
+    });
+  }  
+
+  getAvg() {
+    this.data.getAvg().subscribe((res) => {
+      this.datosAvg = (Object.values(res));
+    });
+  }
+
+  getHappyHour() {
+    this.data.getHappyHour().subscribe((res) => {
+      this.datosHappyHour = (Object.values(res));
+      console.log(this.datosHappyHour);
+    });
+  }
+
+  getPriceMax():void {
+    this.data.getPriceMax().subscribe((res) => {
+      this.datosPriceMax = (Object.values(res));
+      
+    });
+  }
+
+  getPriceMin() {
+    this.data.getPriceMin().subscribe((res) => {
+      this.datosPriceMin = (Object.values(res));
+    });
+  }
+  
+  getAllZone() {
+    this.data.getAllZone().subscribe((res) => {
+      this.datosFull = (Object.values(res));
+    });
+  }
+
+  
 }
+

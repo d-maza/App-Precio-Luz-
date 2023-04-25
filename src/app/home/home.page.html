@@ -1,25 +1,67 @@
+<ion-content [fullscreen]="true">
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Inbox
+    <ion-title class="ion-text-center">
+       Precio de la Luz 💡
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-        Inbox
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
-  </ion-list>
+<ion-card class="glossy" >
+  <img alt="Silhouette of mountains" src="https://energia.roams.es/images/post/es_ES_energy/1200x304/luz-precio-luz-horas.jpg" />
+  <ion-card-header>
+    <ion-card-title>{{ datos[0] }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>🌐 <strong>{{ datos[1] }}h.</strong>  Precio en este instante  </p>
+    <h2>{{ datos[5]}}{{datos[6]}}</h2>
+  </ion-card-content>  
+
+</ion-card>
+
+<ion-card class="glossy" color="primary">
+  <ion-card-content>
+    <p>📊 Precio medio del dia de hoy </p>
+    <h2>{{ datosAvg[2]}} {{ datosAvg[3]}}</h2>
+  </ion-card-content>  
+</ion-card>
+
+<ion-card class="glossy" color="success">
+  <ion-card-content>
+    <p>📉 <strong>{{datosPriceMin[1]}}h.</strong> La mas barata  </p>
+    <h2>{{ datosPriceMin[5]}} {{ datosPriceMin[6]}}</h2>
+  </ion-card-content>  
+</ion-card>
+
+<ion-card class="glossy" color="danger">
+  <ion-card-content>
+    <p>📈 <strong>{{datosPriceMax[1]}}h.</strong> La mas cara </p>
+    <h2>{{ datosPriceMax[5]}} {{ datosPriceMax[6]}}</h2>
+  </ion-card-content>  
+</ion-card>  
+
+  <ion-card class="glossy" color="warning">
+    <ion-card-content >
+      <p>🌈 Hoy pongo la lavadora?</p>
+      <div *ngFor="let datos of datosHappyHour; index as i">
+        <h2>{{datos.hour}}h. ⏲ {{datos.price}}-{{datos.units}}</h2>
+      </div>
+      
+    </ion-card-content>  
+</ion-card>
+
+  <ion-list [inset]="true">
+  <ion-item *ngFor="let item of datosFull; index as i">
+    <ion-label  >
+    <p>{{item.hour}}h. ⏲</p>  <span >{{item.price}}{{item.units}}</span> 
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+
 </ion-content>
+
+<footer>
+  <ion-title class="ion-text-end"> <p>DiveCode™</p>  </ion-title>
+</footer>

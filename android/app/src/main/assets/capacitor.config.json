@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "AppPrecioLuz",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

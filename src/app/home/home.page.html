@@ -1,67 +1,105 @@
-<ion-content [fullscreen]="true">
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title class="ion-text-center">
-       Precio de la Luz 💡
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-card class="glossy" >
-  <img alt="Silhouette of mountains" src="https://energia.roams.es/images/post/es_ES_energy/1200x304/luz-precio-luz-horas.jpg" />
-  <ion-card-header>
-    <ion-card-title>{{ datos[0] }}</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    <p>🌐 <strong>{{ datos[1] }}h.</strong>  Precio en este instante  </p>
-    <h2>{{ datos[5]}}{{datos[6]}}</h2>
-  </ion-card-content>  
-
-</ion-card>
-
-<ion-card class="glossy" color="primary">
-  <ion-card-content>
-    <p>📊 Precio medio del dia de hoy </p>
-    <h2>{{ datosAvg[2]}} {{ datosAvg[3]}}</h2>
-  </ion-card-content>  
-</ion-card>
-
-<ion-card class="glossy" color="success">
-  <ion-card-content>
-    <p>📉 <strong>{{datosPriceMin[1]}}h.</strong> La mas barata  </p>
-    <h2>{{ datosPriceMin[5]}} {{ datosPriceMin[6]}}</h2>
-  </ion-card-content>  
-</ion-card>
-
-<ion-card class="glossy" color="danger">
-  <ion-card-content>
-    <p>📈 <strong>{{datosPriceMax[1]}}h.</strong> La mas cara </p>
-    <h2>{{ datosPriceMax[5]}} {{ datosPriceMax[6]}}</h2>
-  </ion-card-content>  
-</ion-card>  
-
-  <ion-card class="glossy" color="warning">
-    <ion-card-content >
-      <p>🌈 Hoy pongo la lavadora?</p>
-      <div *ngFor="let datos of datosHappyHour; index as i">
-        <h2>{{datos.hour}}h. ⏲ {{datos.price}}-{{datos.units}}</h2>
-      </div>
+      <ion-content [fullscreen]="true">
+        <ion-header [translucent]="true">
+          <ion-toolbar>
+            <ion-title class="ion-text-center">
+              <!-- <ion-title id="footer" class="ion-text-start"> <p>DiveCode™</p> </ion-title> -->
+              <ion-row>
+                <ion-col size="10">
+                  <ion-title class="ion-text-end">Hora de labadoras</ion-title>
+                </ion-col>
+                <ion-col size="2" >
+                  <img aling src="https://img.icons8.com/glyph-neue/64/null/washing-machine.png" width="50%"/>
+                </ion-col>
+              </ion-row>
+              
+                
+              <!-- <ion-toggle
+                aria-label="Dark toggle"
+                color="dark"
+                [checked]="true"
+              ></ion-toggle> -->
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
       
-    </ion-card-content>  
-</ion-card>
+        <ion-card class="glossy">
+          <img
+            alt="Silhouette of mountains"
+            src="https://energia.roams.es/images/post/es_ES_energy/1200x304/luz-precio-luz-horas.jpg"
+          />
+          <ion-card-header>
+            <ion-card-title
+              >{{ datos[0] }} <ion-icon name="calendar-outline"></ion-icon
+            ></ion-card-title>
+          </ion-card-header>
+      
+          <ion-card-content>
+            <p>Precio en este instante <strong>{{ datos[1] }}.h</strong></p>
+            <ion-title color="tertiary">{{ datos[5]}}{{datos[6]}}</ion-title>
+          </ion-card-content>
+        </ion-card>
+      
+        <ion-card  >
+          <ion-card-content>
+            <p>Precio medio del dia de hoy</p>
+            <ion-title color="medium">{{ datosAvg[2]}} {{ datosAvg[3]}}</ion-title>
+          </ion-card-content>
+        </ion-card>
+      
+        <ion-card  >
+          <ion-card-content>
+            <p>La más barata <strong>{{datosPriceMin[1]}}h.</strong> </p>
+            <ion-title color="success">{{ datosPriceMin[5]}} {{ datosPriceMin[6]}}</ion-title>
+          </ion-card-content>
+        </ion-card>
+      
+        <ion-card  >
+          <ion-card-content>
+            <p>La más cara <strong>{{datosPriceMax[1]}}h.</strong> </p>
+            <ion-title color="danger">{{ datosPriceMax[5]}} {{ datosPriceMax[6]}}</ion-title>
+          </ion-card-content>
+        </ion-card>
+      
+        <ion-card >
+          <ion-card-content>
+            <p>👕 Hoy te aconsejamos lavar la ropa a..</p>
+            <div *ngFor="let datos of datosHappyHour; index as i">
+              <h2 >{{datos.hour}}h. ⏲ {{datos.price}}-{{datos.units}}</h2>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      
+        <ion-list  [inset]="true">
+          <ion-item *ngFor="let item of datosFull; index as i">
+            <ion-label>
+              {{item.hour}}h. ⏲
+              <ion-icon
+                *ngIf="item['is-under-avg']"
+                name="trending-down-outline"
+              ></ion-icon>
+              <ion-icon
+                *ngIf="!item['is-under-avg']"
+                name="trending-up-outline"
+              ></ion-icon>
+      
+              <span>
+                {{item.price}}{{item.units}}
+                <ion-icon
+                  *ngIf="item['is-cheap']"
+                  name="shirt-outline"
+                  color="primary"
+                ></ion-icon>
+              </span>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
 
-  <ion-list [inset]="true">
-  <ion-item *ngFor="let item of datosFull; index as i">
-    <ion-label  >
-    <p>{{item.hour}}h. ⏲</p>  <span >{{item.price}}{{item.units}}</span> 
-    </ion-label>
-  </ion-item>
-</ion-list>
+            
+        <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+          <ion-fab-button href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fd-maza">
+            <ion-icon name="logo-octocat"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
 
-
-</ion-content>
-
-<footer>
-  <ion-title class="ion-text-end"> <p>DiveCode™</p>  </ion-title>
-</footer>

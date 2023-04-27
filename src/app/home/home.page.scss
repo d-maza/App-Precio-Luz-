@@ -1,5 +1,22 @@
-// .glossy{ /*Fromhttps:; //css.glass*/background: rgba(255, 255, 255, 0.55); border-radius: 10px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(7.8px); -webkit-backdrop-filter: blur(7.8px); border: 1px solid rgba(255, 255, 255, 0.34); -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px;
-// }
-ion-toolbar{
-    background-image: url('https://energia.roams.es/images/post/es_ES_energy/1200x304/luz-precio-luz-horas.jpg');
+
+ion-content{
+  --background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+}
+
+
+#footer  {
+    --background: #463a40;
+    --color: #705704;
+    font-size: small;
+  }
+
+#verde{
+  --background: #3ef70685;
+  --color: #1a1919;
+  font-size: small;
+}
+
+ion-icon{
+  margin: center;
+  padding-inline: 16px;
 }

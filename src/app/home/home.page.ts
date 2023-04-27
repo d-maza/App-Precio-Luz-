@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component} from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { Message } from 'src/modules/Message';
@@ -16,9 +16,10 @@ export class HomePage {
   datosAvg: Message[] = [];
   datosPriceMin:Message[]=[];
   datosPriceMax: Message[] = [];
-  datosHappyHour: Message[]=[];
-  private data = inject(DataService);
-  constructor() {}
+  datosHappyHour: Message[] = [];
+
+
+  constructor(private data: DataService) {}
 
   refresh(ev: any) {
     setTimeout(() => {
@@ -51,7 +52,6 @@ export class HomePage {
   getHappyHour() {
     this.data.getHappyHour().subscribe((res) => {
       this.datosHappyHour = (Object.values(res));
-      console.log(this.datosHappyHour);
     });
   }
 
@@ -71,6 +71,7 @@ export class HomePage {
   getAllZone() {
     this.data.getAllZone().subscribe((res) => {
       this.datosFull = (Object.values(res));
+        console.log(this.datosFull);
     });
   }
 

@@ -3,22 +3,13 @@
         <ion-header [translucent]="true">
           <ion-toolbar>
             <ion-title class="ion-text-center">
-              <!-- <ion-title id="footer" class="ion-text-start"> <p>DiveCode™</p> </ion-title> -->
-              <ion-row>
-                <ion-col size="10">
-                  <ion-title class="ion-text-end">Hora de labadoras</ion-title>
-                </ion-col>
-                <ion-col size="2" >
-                  <img aling src="https://img.icons8.com/glyph-neue/64/null/washing-machine.png" width="50%"/>
-                </ion-col>
-              </ion-row>
               
-                
-              <!-- <ion-toggle
-                aria-label="Dark toggle"
-                color="dark"
-                [checked]="true"
-              ></ion-toggle> -->
+              <ion-row>
+                <ion-col size="12">
+                  <ion-title  class="ion-text-center">Precio de la luz 💡</ion-title>
+                </ion-col>
+              </ion-row>           
+
             </ion-title>
           </ion-toolbar>
         </ion-header>
@@ -30,20 +21,20 @@
           />
           <ion-card-header>
             <ion-card-title
-              >{{ datos[0] }} <ion-icon name="calendar-outline"></ion-icon
+              >{{ datos[0] || ('Dia '+dia + '/' + mes)}} <ion-icon name="calendar-outline"></ion-icon
             ></ion-card-title>
           </ion-card-header>
       
           <ion-card-content>
-            <p>Precio en este instante <strong>{{ datos[1] }}.h</strong></p>
-            <ion-title color="tertiary">{{ datos[5]}}{{datos[6]}}</ion-title>
+            <p>Precio en este instante <strong>{{ datos[1] || horaActual }}.h</strong></p>
+            <ion-title color="tertiary">{{ datos[5] || '163,481'}}{{datos[6] || '€/MWh'}}</ion-title>
           </ion-card-content>
         </ion-card>
       
         <ion-card  >
           <ion-card-content>
             <p>Precio medio del dia de hoy</p>
-            <ion-title color="medium">{{ datosAvg[2]}} {{ datosAvg[3]}}</ion-title>
+            <ion-title color="medium">{{ datosAvg[2] || '181.87'}} {{ datosAvg[3] || '€/MWh'}}</ion-title>
           </ion-card-content>
         </ion-card>
       
@@ -94,12 +85,14 @@
             </ion-label>
           </ion-item>
         </ion-list>
+        <ion-title id="footer" class="ion-text-start"> <p>DiveCode™</p> </ion-title>
       </ion-content>
 
             
         <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-          <ion-fab-button href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fd-maza">
+          <ion-fab-button href="https://github.com/d-maza">
             <ion-icon name="logo-octocat"></ion-icon>
           </ion-fab-button>
         </ion-fab>
 
+        

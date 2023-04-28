@@ -1,12 +1,12 @@
 
 ion-content{
-  --background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  --background: rgb(31, 28, 28);
 }
 
 
 #footer  {
     --background: #463a40;
-    --color: #705704;
+    --color: #d6a505;
     font-size: small;
   }
 
@@ -18,5 +18,6 @@ ion-content{
 
 ion-icon{
   margin: center;
-  padding-inline: 16px;
+  padding-inline: 10px;
 }
+

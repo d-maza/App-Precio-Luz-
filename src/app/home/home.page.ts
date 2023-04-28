@@ -17,6 +17,13 @@ export class HomePage {
   datosPriceMin:Message[]=[];
   datosPriceMax: Message[] = [];
   datosHappyHour: Message[] = [];
+  d = new Date();
+  horas = this.d.getHours();
+  minutos = this.d.getMinutes();
+  horaActual = this.horas + ":" + this.minutos;
+  dia = this.d.getDate();
+  mes = this.d.getMonth() + 1; 
+
 
 
   constructor(private data: DataService) {}
@@ -34,6 +41,7 @@ export class HomePage {
     this.getPriceMin();
     this.getPriceMax();
     this.getHappyHour();
+    console.log(this.horaActual);
   }
 
 

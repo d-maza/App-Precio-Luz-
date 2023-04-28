@@ -22,7 +22,7 @@ export class DataService {
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json', 
-        'Access-Control-Allow-Origin-': '*',
+        'Access-Control-Allow-Origin': '*',
     }),
     };
     return this.http.get<Message[]>(this.uriNow, options);
@@ -33,7 +33,7 @@ export class DataService {
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json', 
-        'Access-Control-Allow-Origin-': '*',
+        'Access-Control-Allow-Origin': '*',
     }),
     };
     return this.http.get<Message[]>(this.uriAvg, options);
@@ -43,8 +43,8 @@ export class DataService {
   public getAllZone(): Observable <Message[]> {
     const options = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json', 
-        'Access-Control-Allow-Origin-': '*',
+
+        'Access-Control-Allow-Origin': '*',
     }),
     };
     return this.http.get<Message[]>(this.uriAllZone, options);
@@ -54,8 +54,8 @@ export class DataService {
   public getPriceMax(): Observable <Message[]> {
     const options = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json', 
-        'Access-Control-Allow-Origin-': '*',
+  
+        'Access-Control-Allow-Origin': '*',
     }),
     };
     return this.http.get<Message[]>(this.uriPriceMax, options);
@@ -64,8 +64,8 @@ export class DataService {
   public getPriceMin(): Observable <Message[]> {
     const options = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json', 
-        'Access-Control-Allow-Origin-': '*',
+    
+        'Access-Control-Allow-Origin': '*',
     }),
     };
     return this.http.get<Message[]>(this.uriPriceMin, options);
@@ -74,8 +74,8 @@ export class DataService {
   public getHappyHour(): Observable <Message[]> {
     const options = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json', 
-        'Access-Control-Allow-Origin-': '*',
+  
+        'Access-Control-Allow-Origin': '*',
     }),
     };
     return this.http.get<Message[]>(this.uriHappyHour, options);

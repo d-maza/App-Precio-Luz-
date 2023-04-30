@@ -22,7 +22,9 @@ export class HomePage {
   minutos = this.d.getMinutes();
   horaActual = this.horas + ":" + this.minutos;
   dia = this.d.getDate();
-  mes = this.d.getMonth() + 1; 
+  mes = this.d.getMonth() + 1;
+  datosFull2: any ;
+  
 
 
 
@@ -35,13 +37,15 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.getNow();
-    this.getAllZone();
-    this.getAvg();
-    this.getPriceMin();
-    this.getPriceMax();
+    // this.getNow();
+    // this.getAllZone();
+    // this.getAvg();
+    // this.getPriceMin();
+    // this.getPriceMax();
     this.getHappyHour();
-    console.log(this.horaActual);
+    this.getAllZoneApi2();
+
+  
   }
 
 
@@ -79,10 +83,15 @@ export class HomePage {
   getAllZone() {
     this.data.getAllZone().subscribe((res) => {
       this.datosFull = (Object.values(res));
-        console.log(this.datosFull);
     });
   }
 
+  getAllZoneApi2() {
+    this.data.getAllZoneApi2().subscribe((res) => {
+      this.datosFull2 = (Object.values(res));
+        console.log('🐙'+this.datosFull2);
+    });
+  }
   
 }
 

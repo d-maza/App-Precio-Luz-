@@ -32,3 +32,5 @@ fetch ('https://api.preciodelaluz.org/v1/prices/all?zone=PCB')
   fetch ('https://api.preciodelaluz.org/v1/prices/cheapests?zone=PCB&n=2')
   .then(response => response.json())
   .then(json => console.log(json))
+
+  // https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-real?start_date=2023-04-30T00:00&end_date=2023-04-30T23:59&time_trunc=hour

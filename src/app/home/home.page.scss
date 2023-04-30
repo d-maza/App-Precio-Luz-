@@ -1,8 +1,7 @@
 
-ion-content{
-  --background: rgb(31, 28, 28);
-}
-
+// ion-content{
+//   --background: rgb(31, 28, 28);
+// }
 
 #footer  {
     --background: #463a40;
@@ -19,5 +18,32 @@ ion-content{
 ion-icon{
   margin: center;
   padding-inline: 10px;
+}
+
+$dark-color: #111;
+$light-color: #eee;
+
+body.dark-mode {
+  background-color: $dark-color;
+  color: $light-color;
+  a {
+    color: $dark-color;
+  }
+  button {
+    background-color: $light-color;
+    color: $dark-color;
+  }
+}
+
+body.light-mode {
+  background-color: $light-color;
+  color: $dark-color;
+  a {
+    color: $dark-color;
+  }
+  button {
+    background-color: $dark-color;
+    color: $light-color;
+  }
 }
 

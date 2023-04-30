@@ -21,7 +21,9 @@ export class DataService {
   public getNow(): Observable <Message[]> {
     const options = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json', 
+        // "Accept":" application/json",
+        // "Content-Type": "application/json",
+        // "Host": "api.preciodelaluz.org",
         'Access-Control-Allow-Origin': '*',
     }),
     };
@@ -32,7 +34,9 @@ export class DataService {
   public getAvg(): Observable <Message[]> {
     const options = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json', 
+        // "Accept":" application/json",
+        // "Content-Type": "application/json",
+        // "Host": "api.preciodelaluz.org",
         'Access-Control-Allow-Origin': '*',
     }),
     };
@@ -43,7 +47,9 @@ export class DataService {
   public getAllZone(): Observable <Message[]> {
     const options = {
       headers: new HttpHeaders({
-
+        // "Accept":" application/json",
+        // "Content-Type": "application/json",
+        // "Host": "api.preciodelaluz.org",
         'Access-Control-Allow-Origin': '*',
     }),
     };
@@ -54,7 +60,9 @@ export class DataService {
   public getPriceMax(): Observable <Message[]> {
     const options = {
       headers: new HttpHeaders({
-  
+        // "Accept":" application/json",
+        // "Content-Type": "application/json",
+        // "Host": "api.preciodelaluz.org",
         'Access-Control-Allow-Origin': '*',
     }),
     };
@@ -64,7 +72,9 @@ export class DataService {
   public getPriceMin(): Observable <Message[]> {
     const options = {
       headers: new HttpHeaders({
-    
+        // "Accept":" application/json",
+        // "Content-Type": "application/json",
+        // "Host": "api.preciodelaluz.org",
         'Access-Control-Allow-Origin': '*',
     }),
     };
@@ -74,11 +84,26 @@ export class DataService {
   public getHappyHour(): Observable <Message[]> {
     const options = {
       headers: new HttpHeaders({
-  
+        // "Accept":" application/json",
+        // "Content-Type": "application/json",
+        // "Host": "api.preciodelaluz.org",
         'Access-Control-Allow-Origin': '*',
     }),
     };
     return this.http.get<Message[]>(this.uriHappyHour, options);
+
+  }
+
+  public getAllZoneApi2(): Observable <any> {
+    const options = {
+      headers: new HttpHeaders({
+        "Accept":" application/json",
+        "Content-Type": "application/json",
+        // "Host": "apidatos.ree.es",
+        'Access-Control-Allow-Origin': '*',
+    }),
+    };
+    return this.http.get<any>('https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-real?start_date=2023-04-30T00:00&end_date=2023-04-30T23:59&time_trunc=hour', options);
 
   }
 

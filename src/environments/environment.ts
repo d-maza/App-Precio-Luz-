@@ -4,12 +4,7 @@
 
 export const environment = {
   production: false, 
-   uriNow : 'https://api.preciodelaluz.org/v1/prices/now?zone=PCB',
-   uriAvg : 'https://api.preciodelaluz.org/v1/prices/avg?zone=PCB',
-   uriAllZone : 'https://api.preciodelaluz.org/v1/prices/all?zone=PCB',
-   uriPriceMax : 'https://api.preciodelaluz.org/v1/prices/max?zone=PCB',
-   uriPriceMin : 'https://api.preciodelaluz.org/v1/prices/min?zone=PCB',
-   uriHappyHour :'https://api.preciodelaluz.org/v1/prices/cheapests?zone=PCB&n=3'
+  uri : '/api/es/datos/mercados/precios-mercados-tiempo-real?start_date=2023-04-30T00:00&end_date=2023-04-30T23:59&time_trunc=hour',
 };
 
 /*

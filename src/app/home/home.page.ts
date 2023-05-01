@@ -14,8 +14,8 @@ export class HomePage {
   datos: Message[] = [];
   datosFull: Message[] = [];
   datosAvg: Message[] = [];
-  datosPriceMin:Message[]=[];
-  datosPriceMax: Message[] = [];
+  PriceMin: Number = 0
+  PriceMax: Number = 0
   datosHappyHour: Message[] = [];
   d = new Date();
   horas = this.d.getHours();
@@ -23,12 +23,10 @@ export class HomePage {
   horaActual = this.horas + ":" + this.minutos;
   dia = this.d.getDate();
   mes = this.d.getMonth() + 1;
-  datosFull2: any ;
-  
-
-
-
-  constructor(private data: DataService) {}
+  datosFull2: any;
+  preiosHoy: any[] = []
+ 
+  constructor(private data: DataService) { }
 
   refresh(ev: any) {
     setTimeout(() => {
@@ -37,61 +35,24 @@ export class HomePage {
   }
 
   ngOnInit() {
-    // this.getNow();
-    // this.getAllZone();
-    // this.getAvg();
-    // this.getPriceMin();
-    // this.getPriceMax();
-    this.getHappyHour();
-    this.getAllZoneApi2();
-
-  
+    this.getApi();
   }
 
+  getApi(): void {
+    this.data.getApi().subscribe((res: any) => {
+      this.datosFull2 = res;
+      for (let i: number = 0; i < 24; i++) {
+        const element = this.datosFull2.included[1].attributes.values[i].value;
 
-  getNow() {
-    this.data.getNow().subscribe((res) => {
-      this.datos = (Object.values(res));
-    });
-  }  
-
-  getAvg() {
-    this.data.getAvg().subscribe((res) => {
-      this.datosAvg = (Object.values(res));
+        this.preiosHoy.push(element)
+        this.PriceMin = Math.min(...this.preiosHoy)
+        this.PriceMax = Math.max(...this.preiosHoy)
+     
+      }
+      console.log(this.preiosHoy);
+      console.log(this.PriceMax);
+      console.log(this.PriceMin);
     });
   }
-
-  getHappyHour() {
-    this.data.getHappyHour().subscribe((res) => {
-      this.datosHappyHour = (Object.values(res));
-    });
-  }
-
-  getPriceMax():void {
-    this.data.getPriceMax().subscribe((res) => {
-      this.datosPriceMax = (Object.values(res));
-      
-    });
-  }
-
-  getPriceMin() {
-    this.data.getPriceMin().subscribe((res) => {
-      this.datosPriceMin = (Object.values(res));
-    });
-  }
-  
-  getAllZone() {
-    this.data.getAllZone().subscribe((res) => {
-      this.datosFull = (Object.values(res));
-    });
-  }
-
-  getAllZoneApi2() {
-    this.data.getAllZoneApi2().subscribe((res) => {
-      this.datosFull2 = (Object.values(res));
-        console.log('🐙'+this.datosFull2);
-    });
-  }
-  
 }
 

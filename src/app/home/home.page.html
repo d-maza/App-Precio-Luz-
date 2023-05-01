@@ -48,15 +48,15 @@
   
     <ion-card  >
       <ion-card-content>
-        <p>La más barata <strong>{{datosPriceMin[1]}}h.</strong> </p>
-        <ion-title color="success">{{ datosPriceMin[5]}} {{ datosPriceMin[6]}}</ion-title>
+        <p>La más barata <strong>XX-XX h.</strong> </p>
+        <ion-title color="success">{{PriceMin}} €/MWh</ion-title>
       </ion-card-content>
     </ion-card>
   
     <ion-card  >
       <ion-card-content>
-        <p>La más cara <strong>{{datosPriceMax[1]}}h.</strong> </p>
-        <ion-title color="danger">{{ datosPriceMax[5]}} {{ datosPriceMax[6]}}</ion-title>
+        <p>La más cara <strong>XX-XX h.</strong></p>
+        <ion-title color="danger">{{PriceMax}} €/MWh</ion-title>
       </ion-card-content>
     </ion-card>
   
@@ -70,9 +70,9 @@
     </ion-card>
   
     <ion-list  [inset]="true">
-      <ion-item *ngFor="let item of datosFull; index as i">
+      <ion-item *ngFor="let item of preiosHoy; index as i">
         <ion-label>
-          {{item.hour}}h. ⏲
+          {{i}}-{{i+1}}h. ⏲
           <ion-icon
             *ngIf="item['is-under-avg']"
             name="trending-down-outline"
@@ -83,7 +83,7 @@
           ></ion-icon>
   
           <span>
-            {{item.price}}{{item.units}}
+            {{item}} €/MWh
             <ion-icon
               *ngIf="item['is-cheap']"
               name="shirt-outline"

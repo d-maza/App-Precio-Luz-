@@ -5,27 +5,33 @@ import { Message } from 'src/modules/Message';
 
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
   datos: Message[] = [];
   datosFull: Message[] = [];
   datosAvg: Message[] = [];
   PriceMin: Number = 0
   PriceMax: Number = 0
   datosHappyHour: Message[] = [];
+  bombilla : string = '💡'
+
   d = new Date();
   horas = this.d.getHours();
   minutos = this.d.getMinutes();
   horaActual = this.horas + ":" + this.minutos;
-  dia = this.d.getDate();
-  mes = this.d.getMonth() + 1;
+
   datosFull2: any;
   preiosHoy: any[] = []
  
+  newDay = this.data.getfechaActual();
+  
+  newColor='red'
   constructor(private data: DataService) { }
 
   refresh(ev: any) {
@@ -50,9 +56,16 @@ export class HomePage {
      
       }
       console.log(this.preiosHoy);
-      console.log(this.PriceMax);
-      console.log(this.PriceMin);
+      console.log('Precio máximo: '+ this.PriceMax);
+      console.log('Precio mínimo: '+ this.PriceMin);
     });
+  }
+
+
+  toggleDarkMode() {
+    let body = document.getElementById('body');
+    (this.bombilla === '💡') ? this.bombilla = `` : this.bombilla = '💡';
+    body?.classList.toggle('dark-mode');
   }
 }
 

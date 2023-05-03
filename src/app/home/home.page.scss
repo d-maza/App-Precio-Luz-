@@ -3,14 +3,12 @@
   --color: #292827;
   font-size: small;
 }
-
-ion-icon {
-  margin: center;
-  padding-inline: 10px;
+ion-col{
+  margin: auto;
 }
 
 ion-content {
-  --background: #f7cf60ef;
+  --background: #80dafd77;
   --color: black;
 }
 
@@ -18,14 +16,15 @@ ion-content {
   --background: #1d1c1cc0;
   --color: white;
   ion-card {
-    --background: rgba(255, 255, 255, 0.733);
+    --background: rgba(255, 255, 255, 0.925);
     --border-radius: 16px;
     --box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     --backdrop-filter: blur(4.2px);
     --webkit-backdrop-filter: blur(4.2px);
     --border: 1px solid rgba(255, 255, 255, 0.61);
   }
-  ion-toolbar {
-    --background: rgba(213, 214, 209, 0.603);
-  }
+
 }
+  ion-toolbar {
+    --background: rgba(237, 238, 235, 0.897);
+  }

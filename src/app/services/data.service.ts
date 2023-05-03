@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class DataService {
   fechaActual: string = ''
   
 
-private uri = `/api/es/datos/mercados/precios-mercados-tiempo-real?start_date=${this.getfechaActual()}T00:00&end_date=${this.getfechaActual()}T23:59&time_trunc=hour`
+private uri = `${environment.urlApi}/es/datos/mercados/precios-mercados-tiempo-real?start_date=${this.getfechaActual()}T00:00&end_date=${this.getfechaActual()}T23:59&time_trunc=hour`
 
 
   constructor(private http: HttpClient) {}

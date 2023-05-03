@@ -1,10 +1,6 @@
 import { Component} from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
 import { DataService } from '../services/data.service';
-import { Message } from 'src/modules/Message';
-
-
-
 
 @Component({
   selector: 'app-home',
@@ -13,25 +9,24 @@ import { Message } from 'src/modules/Message';
 })
 export class HomePage {
 
-  datos: Message[] = [];
-  datosFull: Message[] = [];
-  datosAvg: Message[] = [];
-  PriceMin: Number = 0
-  PriceMax: Number = 0
-  datosHappyHour: Message[] = [];
-  bombilla : string = '💡'
+  datos: any;
+  preciosHoy: any[] = []
+  priceMin: number = 0
+  priceMin1: number = 0
+  priceMax: number = 0
+  percioMedio: any
+  image = 'https://energia.roams.es/images/post/es_ES_energy/1200x304/luz-precio-luz-horas.jpg'
 
+  bombilla: string = '💡'
+ 
   d = new Date();
   horas = this.d.getHours();
   minutos = this.d.getMinutes();
   horaActual = this.horas + ":" + this.minutos;
 
-  datosFull2: any;
-  preiosHoy: any[] = []
- 
   newDay = this.data.getfechaActual();
   
-  newColor='red'
+
   constructor(private data: DataService) { }
 
   refresh(ev: any) {
@@ -41,23 +36,23 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.getApi();
+    this.getAll();
   }
 
-  getApi(): void {
+  getAll(): void {
     this.data.getApi().subscribe((res: any) => {
-      this.datosFull2 = res;
+      this.datos = res;
       for (let i: number = 0; i < 24; i++) {
-        const element = this.datosFull2.included[1].attributes.values[i].value;
+        const element = this.datos.included[1].attributes.values[i].value;
 
-        this.preiosHoy.push(element)
-        this.PriceMin = Math.min(...this.preiosHoy)
-        this.PriceMax = Math.max(...this.preiosHoy)
-     
+        this.preciosHoy.push(element)
+        this.priceMin = Math.min(...this.preciosHoy)
+        this.priceMax = Math.max(...this.preciosHoy)
+        this.percioMedio = this.preciosHoy.reduce((acc, cur) => {
+          let result = (acc + cur / 24)
+          return Math.round(result)
+         }, 0);
       }
-      console.log(this.preiosHoy);
-      console.log('Precio máximo: '+ this.PriceMax);
-      console.log('Precio mínimo: '+ this.PriceMin);
     });
   }
 
@@ -67,5 +62,40 @@ export class HomePage {
     (this.bombilla === '💡') ? this.bombilla = `` : this.bombilla = '💡';
     body?.classList.toggle('dark-mode');
   }
+
+  horaCara() {
+
+    for (let i = 0; i < this.preciosHoy.length; i++) {
+      if (this.preciosHoy[i] == this.priceMax) {
+        return i;
+      }
+    }
+    return -1;
+  }
+  
+  horaBarata() {
+
+    for (let i = 0; i < this.preciosHoy.length; i++) {
+      if (this.preciosHoy[i] == this.priceMin) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  precioActual() {
+   let i = this.horas;
+   return this.preciosHoy[i]
+  }
+
+
 }
+ 
+    
+    
+
+ 
+  
+
+
 

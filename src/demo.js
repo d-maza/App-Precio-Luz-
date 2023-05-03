@@ -11,8 +11,9 @@ fechaActual= (año + '-' + mes + '-' + dia)
 console.log(fechaActual);
 
 
+  // https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-real?start_date=2023-04-30T00:00&end_date=2023-04-30T23:59&time_trunc=hour
  
-
+  // https://apidatos.ree.es/api/es/datos/mercados/precios-mercados-tiempo-real?start_date=2023-5-3T00:00&end_date=2023-5-3T23:59&time_trunc=hour
 
 // function average(...nums) {
 //   let average = 0;

@@ -1,31 +1,27 @@
 <div class="principal">
+  <ion-header [translucent]="true">
+    <ion-toolbar >
+      <ion-title class="ion-text-center">
+        <ion-row>
+          <ion-col size="12">
+            <ion-toggle
+              id="toggle"
+              aria-label="Dark toggle"
+              color="dark"
+              [checked]="true"
+              (click)="toggleDarkMode()"
+            ></ion-toggle>
+            <ion-title class="ion-text-center"
+              >Ahorra luz {{bombilla}}
+            </ion-title>
+          </ion-col>
+        </ion-row>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
   <ion-content id="body" [fullscreen]="true">
-    <ion-header [translucent]="true">
-      <ion-toolbar>
-        <ion-title class="ion-text-center">
-          <ion-row>
-            <ion-col size="12">
-              <ion-toggle
-                id="toggle"
-                aria-label="Dark toggle"
-                color="dark"
-                [checked]="true"
-                (click)="toggleDarkMode()"
-              ></ion-toggle>
-              <ion-title class="ion-text-center"
-                >Ahorra luz {{bombilla}}
-              </ion-title>
-            </ion-col>
-          </ion-row>
-        </ion-title>
-      </ion-toolbar>
-    </ion-header>
-
     <ion-card class="glossy">
-      <img
-        alt="Silhouette of mountains"
-        src="https://energia.roams.es/images/post/es_ES_energy/1200x304/luz-precio-luz-horas.jpg"
-      />
+      <ion-img [src]="image"></ion-img>
       <ion-card-header>
         <ion-card-title
           >{{ newDay }} <ion-icon name="calendar-outline"></ion-icon
@@ -35,63 +31,75 @@
       <ion-card-content>
         <p>
           Precio en este instante
-          <strong>{{ datos[1] || horaActual }}.h</strong>
+          <strong>{{ horaActual }}.h</strong>
         </p>
-        <ion-title color="tertiary">163,52p €/MWh </ion-title>
+        <ion-title color="tertiary">{{precioActual()}} €/MWh </ion-title>
       </ion-card-content>
     </ion-card>
 
     <ion-card>
-      <ion-card-content>
+      <ion-card-content >
         <p>Precio medio del dia de hoy</p>
-        <ion-title color="medium">185,82p €/MWh</ion-title>
+        <ion-title color="medium">{{percioMedio}}€/MWh</ion-title>
       </ion-card-content>
     </ion-card>
 
     <ion-card>
       <ion-card-content>
-        <p>La más barata <strong>XX-XX h.</strong></p>
-        <ion-title color="success">{{PriceMin}} €/MWh</ion-title>
+        <p>
+          La más barata:
+          <strong>{{horaBarata()}} a {{horaBarata()+1}} h.</strong>
+        </p>
+        <ion-title color="success">{{priceMin}} €/MWh</ion-title>
       </ion-card-content>
     </ion-card>
 
     <ion-card>
       <ion-card-content>
-        <p>La más cara <strong>XX-XX h.</strong></p>
-        <ion-title color="danger">{{PriceMax}} €/MWh</ion-title>
+        <p>
+          La más cara: <strong>{{horaCara()}} a {{horaCara()+1}} h.</strong>
+        </p>
+        <ion-title color="danger">{{priceMax}} €/MWh</ion-title>
       </ion-card-content>
     </ion-card>
 
-    <ion-card>
+    <!-- <ion-card>
       <ion-card-content>
         <p>👕 Hoy te aconsejamos lavar la ropa a..</p>
         <div *ngFor="let datos of datosHappyHour; index as i">
           <h2>{{datos.hour}}h. ⏲ {{datos.price}}-{{datos.units}}</h2>
         </div>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
 
     <ion-list [inset]="true">
-      <ion-item *ngFor="let item of preiosHoy; index as i">
+      <ion-item *ngFor="let item of preciosHoy; index as i">
         <ion-label>
-          {{i}}-{{i+1}}h. ⏲
-          <ion-icon
-            *ngIf="item['is-under-avg']"
-            name="trending-down-outline"
-          ></ion-icon>
-          <ion-icon
-            *ngIf="!item['is-under-avg']"
-            name="trending-up-outline"
-          ></ion-icon>
-
-          <span>
-            {{item}} €/MWh
-            <ion-icon
-              *ngIf="item['is-cheap']"
-              name="shirt-outline"
-              color="primary"
+          <ion-row
+          class="ion-align-items-center"
+          >
+            <ion-col size="3"> {{i}}-{{i+1}}h. ⏲ </ion-col>
+            <ion-col size="5">
+              <span> {{item}} €/MWh </span>
+              <ion-icon
+              *ngIf="item < percioMedio"
+              color="success"
+              name="trending-down-outline"
             ></ion-icon>
-          </span>
+            <ion-icon
+              *ngIf="item > percioMedio"
+              color="danger"
+              name="trending-up-outline"
+            ></ion-icon>
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon
+                *ngIf="item < 100"
+                name="shirt-outline"
+                color="primary"
+              ></ion-icon>
+            </ion-col>
+          </ion-row>
         </ion-label>
       </ion-item>
     </ion-list>

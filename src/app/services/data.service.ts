@@ -5,8 +5,8 @@ import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
-  
 })
+  
 export class DataService {
 
   fecha = new Date();
@@ -15,9 +15,7 @@ export class DataService {
   dia = this.fecha.getDay();
   fechaActual: string = ''
   
-
 private uri = `${environment.urlApi}/es/datos/mercados/precios-mercados-tiempo-real?start_date=${this.getfechaActual()}T00:00&end_date=${this.getfechaActual()}T23:59&time_trunc=hour`
-
 
   constructor(private http: HttpClient) {}
 

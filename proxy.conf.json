@@ -1,7 +1,7 @@
 {
   "/api": {
     "target": "https://apidatos.ree.es",
-    "secure": true,
+    "secure": false,
     "changeOrigin": true,
     "pathRewrite": {
       "^/api": ""

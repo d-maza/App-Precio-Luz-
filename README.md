@@ -2,7 +2,7 @@
 
 ## Description
 
-A mobile application developed with Ionic 7 that consumes the Electric Network API to provide you with hourly pricing.
+A mobile application developed with Ionic 7 that consumes the REE (Red Electrica Estatal - Spain)  API to provide you with hourly pricing.
  
 You can see the cheapest price of the day to schedule your laundry activities 💸.😅
 

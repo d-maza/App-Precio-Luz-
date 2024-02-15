@@ -8,7 +8,7 @@ You can see the cheapest price of the day to schedule your laundry activities �
 
 Oh, and of course, also in dark mode to help you save battery on your mobile device 🔋😝
 <hr>
-<img width="35%" src="./src/assets/Ahorra_luz.png"  alt="image app" />
+<img width="50%" src="./src/assets/Ahorra_luz.png"  alt="image app" />
 
 <br>
 

@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false, 
-  urlApi : '/api'
+  production: false,
+  urlApi : 'https://apidatos.ree.es'
 };
 
 /*

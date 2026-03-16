@@ -1,33 +1,41 @@
-import { Component} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
-  standalone: false,
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomePage {
+export class HomePage implements OnInit {
+  readonly darkModeImage = 'assets/hero-bulb.svg';
+  readonly lightModeImage = 'assets/hero-bulb-light.svg';
 
   datos: any;
   preciosHoy: number[] = []
   priceMin: number = 0
   priceMax: number = 0
   percioMedio: number = 0
-  image = 'https://energia.roams.es/images/post/es_ES_energy/1200x304/luz-precio-luz-horas.jpg'
+  isDarkMode = false;
 
-  bombilla: string = '💡'
  
   d = new Date();
   horas = this.d.getHours();
   minutos = this.d.getMinutes();
   horaActual = this.horas + ":" + this.minutos;
 
-  newDay = this.data.getfechaActual();
-  
+  readonly data = inject(DataService);
 
-  constructor(private data: DataService) { }
+  newDay = this.data.getfechaActual();
+
+
+
+  constructor() { }
+
+  get image(): string {
+    return this.isDarkMode ? this.darkModeImage : this.lightModeImage;
+  }
 
   refresh(ev: any) {
     setTimeout(() => {
@@ -65,11 +73,8 @@ export class HomePage {
     });
   }
 
-
-  toggleDarkMode() {
-    let body = document.getElementById('body');
-    (this.bombilla === '💡') ? this.bombilla = `` : this.bombilla = '💡';
-    body?.classList.toggle('dark-mode');
+  toggleDarkMode(isDarkMode: boolean) {
+    this.isDarkMode = isDarkMode;
   }
 
   horaCara() {
@@ -88,7 +93,6 @@ export class HomePage {
    const i = Math.min(this.horas, this.preciosHoy.length - 1);
    return this.preciosHoy[i];
   }
-
 
 }
  

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 304" role="img" aria-label="Bombilla encendida sobre fondo negro">
+  <defs>
+    <radialGradient id="glow" cx="68%" cy="42%" r="34%">
+      <stop offset="0%" stop-color="#fff8c8" stop-opacity="0.95"/>
+      <stop offset="28%" stop-color="#ffd774" stop-opacity="0.72"/>
+      <stop offset="60%" stop-color="#c78214" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7d67e"/>
+      <stop offset="65%" stop-color="#d79d3a"/>
+      <stop offset="100%" stop-color="#6c4c1d"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d8d8d8"/>
+      <stop offset="30%" stop-color="#7f7f7f"/>
+      <stop offset="70%" stop-color="#2f2f2f"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="304" fill="#050505"/>
+  <circle cx="790" cy="130" r="195" fill="url(#glow)"/>
+  <g transform="translate(720 30)">
+    <path d="M92 0c58 0 105 49 105 109 0 37-15 62-34 87-19 24-28 48-29 70H50c-1-22-10-46-29-70C2 171-13 146-13 109-13 49 34 0 92 0z" fill="url(#glass)" opacity="0.95"/>
+    <path d="M92 2c57 0 103 48 103 107 0 36-14 60-33 85-19 24-28 49-28 72" fill="none" stroke="#f9e4b0" stroke-width="3" opacity="0.45"/>
+    <ellipse cx="64" cy="78" rx="15" ry="34" fill="#fff4d0" opacity="0.25"/>
+    <g filter="url(#softGlow)" stroke="#fff7d6" stroke-linecap="round">
+      <path d="M72 70v86" stroke-width="7"/>
+      <path d="M92 60v102" stroke-width="7"/>
+      <path d="M112 70v86" stroke-width="7"/>
+      <path d="M72 90l20-30 20 30" stroke-width="4" fill="none"/>
+      <path d="M72 136l20-30 20 30" stroke-width="4" fill="none"/>
+    </g>
+    <path d="M79 159c3 14 7 24 13 31 6-7 10-17 13-31" fill="none" stroke="#c88e2d" stroke-width="3"/>
+    <rect x="47" y="266" width="90" height="28" rx="9" fill="url(#metal)"/>
+    <path d="M52 275h80M49 283h86M53 291h78" stroke="#d7d7d7" stroke-opacity="0.45" stroke-width="2"/>
+    <path d="M62 294c8 13 20 20 30 20s22-7 30-20" fill="#1b1b1b"/>
+  </g>
+</svg>

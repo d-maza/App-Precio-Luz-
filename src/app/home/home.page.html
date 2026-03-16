@@ -8,18 +8,18 @@
               id="toggle"
               aria-label="Dark toggle"
               color="dark"
-              [checked]="true"
-              (click)="toggleDarkMode()"
+              [checked]="isDarkMode"
+              (ionChange)="toggleDarkMode($event.detail.checked)"
             ></ion-toggle>
             <ion-title class="ion-text-center"
-              >Ahorra luz {{bombilla}}
+              >Ahorra luz
             </ion-title>
           </ion-col>
         </ion-row>
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content id="body" [fullscreen]="true">
+  <ion-content id="body" [fullscreen]="true" [class.dark-mode]="isDarkMode">
     <ion-card class="glossy hero-card same-width">
       <ion-img [src]="image"></ion-img>
       <ion-card-header>
@@ -103,7 +103,3 @@
     </ion-fab>
   </ion-content>
 </div>
-<script>
-  let toggle = document.getElementById("toggle");
-  toggle.addEventListener("change", toggleDarkMode);
-</script>

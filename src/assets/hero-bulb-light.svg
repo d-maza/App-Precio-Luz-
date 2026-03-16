@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 304" role="img" aria-label="Bombilla apagada sobre fondo de atardecer">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe4b5"/>
+      <stop offset="38%" stop-color="#ffc285"/>
+      <stop offset="72%" stop-color="#f28d73"/>
+      <stop offset="100%" stop-color="#6f88b6"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="22%" cy="32%" r="24%">
+      <stop offset="0%" stop-color="#fff2c1" stop-opacity="0.95"/>
+      <stop offset="58%" stop-color="#ffd27a" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ffd27a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="shadow" cx="67%" cy="48%" r="28%">
+      <stop offset="0%" stop-color="#744f59" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#744f59" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.94"/>
+      <stop offset="100%" stop-color="#d3d9e2" stop-opacity="0.92"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cfd5dc"/>
+      <stop offset="50%" stop-color="#8b9098"/>
+      <stop offset="100%" stop-color="#555b63"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="304" fill="url(#bg)"/>
+  <circle cx="270" cy="96" r="70" fill="#fff0bf" opacity="0.9"/>
+  <circle cx="270" cy="96" r="130" fill="url(#sunGlow)"/>
+  <path d="M0 248C112 224 194 234 287 245c90 11 179 20 266 6 113-19 167-54 267-48 96 6 173 44 380 34v67H0z" fill="#7d6280" opacity="0.34"/>
+  <path d="M0 266c97-18 180-3 270 12 86 14 175 28 282 9 105-18 188-55 287-52 123 4 219 45 361 37v32H0z" fill="#556a8d" opacity="0.52"/>
+  <circle cx="790" cy="145" r="150" fill="url(#shadow)"/>
+  <g transform="translate(720 30)">
+    <path d="M92 0c58 0 105 49 105 109 0 37-15 62-34 87-19 24-28 48-29 70H50c-1-22-10-46-29-70C2 171-13 146-13 109-13 49 34 0 92 0z" fill="url(#glass)" stroke="#bcc5d0" stroke-width="2"/>
+    <path d="M92 2c57 0 103 48 103 107 0 36-14 60-33 85-19 24-28 49-28 72" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.65"/>
+    <ellipse cx="64" cy="78" rx="15" ry="34" fill="#ffffff" opacity="0.48"/>
+    <g stroke="#8f97a1" stroke-linecap="round">
+      <path d="M72 70v86" stroke-width="6"/>
+      <path d="M92 60v102" stroke-width="6"/>
+      <path d="M112 70v86" stroke-width="6"/>
+      <path d="M72 90l20-30 20 30" stroke-width="4" fill="none"/>
+      <path d="M72 136l20-30 20 30" stroke-width="4" fill="none"/>
+    </g>
+    <rect x="47" y="266" width="90" height="28" rx="9" fill="url(#metal)"/>
+    <path d="M52 275h80M49 283h86M53 291h78" stroke="#edf1f5" stroke-opacity="0.7" stroke-width="2"/>
+    <path d="M62 294c8 13 20 20 30 20s22-7 30-20" fill="#3f444a"/>
+  </g>
+</svg>

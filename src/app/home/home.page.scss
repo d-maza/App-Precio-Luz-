@@ -42,6 +42,7 @@ ion-content::part(scroll) {
   justify-content: center;
   gap: 8px;
   font-weight: 600;
+  color: #4a3200;
 }
 
 
@@ -143,6 +144,37 @@ ion-item {
   }
 
 }
-  ion-toolbar {
-    --background: rgba(237, 238, 235, 0.897);
-  }
+
+ion-header {
+  padding: 0;
+}
+
+ion-toolbar {
+  --background: linear-gradient(
+    145deg,
+    rgba(255, 248, 205, 0.92) 0%,
+    rgba(255, 223, 133, 0.82) 46%,
+    rgba(255, 192, 87, 0.72) 100%
+  );
+  --color: #4a3200;
+  --border-color: rgba(126, 82, 0, 0.25);
+  --border-width: 1px;
+  --border-style: solid;
+  --min-height: 56px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+ion-toolbar::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.38) 0%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}

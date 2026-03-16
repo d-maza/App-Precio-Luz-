@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
+import { Component, inject, OnInit} from '@angular/core';
 import { IonicModule, RefresherCustomEvent } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 
@@ -8,8 +8,7 @@ import { DataService } from '../services/data.service';
   selector: 'app-home',
   imports: [CommonModule, FormsModule, IonicModule],
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
   readonly darkModeImage = 'assets/hero-bulb.svg';

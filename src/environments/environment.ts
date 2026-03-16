@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlApi : 'https://apidatos.ree.es'
+  urlApi : '/api'
 };
 
 /*

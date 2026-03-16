@@ -1,21 +1,27 @@
 <div class="principal">
   <ion-header [translucent]="true">
     <ion-toolbar >
-      <ion-title class="ion-text-center">
-        <ion-row>
-          <ion-col size="12">
-            <ion-toggle
-              id="toggle"
-              aria-label="Dark toggle"
-              color="dark"
-              [checked]="isDarkMode"
-              (ionChange)="toggleDarkMode($event.detail.checked)"
-            ></ion-toggle>
-            <ion-title class="ion-text-center"
-              >Ahorra luz
-            </ion-title>
-          </ion-col>
-        </ion-row>
+      <ion-buttons slot="end">
+        <ion-button
+          class="github-nav-button"
+          fill="clear"
+          href="https://github.com/d-maza"
+          aria-label="GitHub de d-maza"
+        >
+          <ion-icon slot="icon-only" name="logo-octocat"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="toolbar-center-title">
+        <div class="toolbar-center-group">
+          <ion-toggle
+            id="toggle"
+            aria-label="Dark toggle"
+            color="dark"
+            [checked]="isDarkMode"
+            (ionChange)="toggleDarkMode($event.detail.checked)"
+          ></ion-toggle>
+          <span>Ahorra luz</span>
+        </div>
       </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -95,11 +101,5 @@
       </ion-item>
     </ion-list>
     <ion-title id="footer" class="ion-text-start"> <p>DiveCode™</p> </ion-title>
-
-    <ion-fab class="github-fab" slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button href="https://github.com/d-maza">
-        <ion-icon name="logo-octocat"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
   </ion-content>
 </div>

@@ -13,13 +13,37 @@ ion-content::part(scroll) {
   padding-bottom: 10px;
 }
 
-.github-fab {
-  margin-bottom: calc(env(safe-area-inset-bottom, 0px) + 56px);
+.github-nav-button {
+  width: 28px;
+  height: 28px;
+  min-height: 28px;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  margin-right: 8px;
 }
 
-.github-fab ion-fab-button {
-  margin-top: 10px;
+.github-nav-button ion-icon {
+  font-size: 18px;
 }
+
+.toolbar-center-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  padding: 0;
+}
+
+.toolbar-center-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
 
 ion-col{
   margin: auto;

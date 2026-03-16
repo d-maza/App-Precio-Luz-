@@ -11,11 +11,10 @@ import { DataService } from '../services/data.service';
 export class HomePage {
 
   datos: any;
-  preciosHoy: any[] = []
+  preciosHoy: number[] = []
   priceMin: number = 0
-  priceMin1: number = 0
   priceMax: number = 0
-  percioMedio: any
+  percioMedio: number = 0
   image = 'https://energia.roams.es/images/post/es_ES_energy/1200x304/luz-precio-luz-horas.jpg'
 
   bombilla: string = '💡'
@@ -43,17 +42,26 @@ export class HomePage {
   getAll(): void {
     this.data.getApi().subscribe((res: any) => {
       this.datos = res;
-      for (let i: number = 0; i < 24; i++) {
-        const element = this.datos.included[1].attributes.values[i].value;
+      const series = this.datos?.included ?? [];
+      const hourlySeries = series.find((item: any) => (item?.attributes?.values?.length ?? 0) === 24);
+      const fallbackSeries = series.find((item: any) => (item?.attributes?.values?.length ?? 0) > 0);
+      const values = (hourlySeries ?? fallbackSeries)?.attributes?.values ?? [];
 
-        this.preciosHoy.push(element)
-        this.priceMin = Math.min(...this.preciosHoy)
-        this.priceMax = Math.max(...this.preciosHoy)
-        this.percioMedio = this.preciosHoy.reduce((acc, cur) => {
-          let result = (acc + cur / 24)
-          return Math.round(result)
-         }, 0);
+      this.preciosHoy = values
+        .map((entry: any) => Number(entry?.value))
+        .filter((value: number) => Number.isFinite(value));
+
+      if (!this.preciosHoy.length) {
+        this.priceMin = 0;
+        this.priceMax = 0;
+        this.percioMedio = 0;
+        return;
       }
+
+      this.priceMin = Math.min(...this.preciosHoy);
+      this.priceMax = Math.max(...this.preciosHoy);
+      const suma = this.preciosHoy.reduce((acc, cur) => acc + cur, 0);
+      this.percioMedio = Math.round(suma / this.preciosHoy.length);
     });
   }
 
@@ -65,28 +73,20 @@ export class HomePage {
   }
 
   horaCara() {
-
-    for (let i = 0; i < this.preciosHoy.length; i++) {
-      if (this.preciosHoy[i] == this.priceMax) {
-        return i;
-      }
-    }
-    return -1;
+    return this.preciosHoy.indexOf(this.priceMax);
   }
   
   horaBarata() {
-
-    for (let i = 0; i < this.preciosHoy.length; i++) {
-      if (this.preciosHoy[i] == this.priceMin) {
-        return i;
-      }
-    }
-    return -1;
+    return this.preciosHoy.indexOf(this.priceMin);
   }
 
   precioActual() {
-   let i = this.horas;
-   return this.preciosHoy[i]
+   if (!this.preciosHoy.length) {
+    return 0;
+   }
+
+   const i = Math.min(this.horas, this.preciosHoy.length - 1);
+   return this.preciosHoy[i];
   }
 
 

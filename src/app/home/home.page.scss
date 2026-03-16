@@ -2,6 +2,15 @@
   --background: #463a40;
   --color: #292827;
   font-size: small;
+  margin: 8px 12px 6px;
+}
+
+#footer p {
+  margin: 0;
+}
+
+ion-content::part(scroll) {
+  padding-bottom: 10px;
 }
 ion-col{
   margin: auto;
@@ -12,16 +21,92 @@ ion-content {
   --color: black;
 }
 
+.same-width {
+  width: calc(100% - 24px);
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+ion-card {
+  --background: rgba(255, 255, 255, 0.9);
+  --color: #1f2937;
+  --border: 1px solid rgba(31, 41, 55, 0.1);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+ion-list.same-width {
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+ion-list {
+  background: transparent;
+}
+
+ion-item {
+  --background: rgba(255, 255, 255, 0.75);
+  --color: #1f2937;
+  --border-color: rgba(31, 41, 55, 0.12);
+  --inner-border-width: 0 0 1px 0;
+  border-radius: 10px;
+  margin-bottom: 4px;
+}
+
+.hero-card {
+  margin-bottom: 4px;
+  overflow: hidden;
+}
+
+.hero-card ion-card-header {
+  padding-top: 10px;
+  padding-bottom: 6px;
+}
+
+.date-title {
+  color: #111827;
+  font-weight: 700;
+}
+
+.date-title ion-icon {
+  color: #1f2937;
+  vertical-align: middle;
+}
+
+.hero-card ion-card-content {
+  padding-top: 0;
+}
+
+.hero-card + .summary-card {
+  margin-top: 0;
+}
+
+.summary-card {
+  margin-top: 8px;
+}
+
 .dark-mode {
   --background: #1d1c1cc0;
   --color: white;
   ion-card {
-    --background: rgba(255, 255, 255, 0.849);
+    --background: rgba(24, 28, 35, 0.86);
+    --color: #e5e7eb;
     --border-radius: 16px;
     --box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     --backdrop-filter: blur(4.2px);
     --webkit-backdrop-filter: blur(4.2px);
-    --border: 1px solid rgba(255, 255, 255, 0.61);
+    --border: 1px solid rgba(229, 231, 235, 0.18);
+  }
+
+  ion-item {
+    --background: rgba(24, 28, 35, 0.86);
+    --color: #e5e7eb;
+    --border-color: rgba(229, 231, 235, 0.18);
+  }
+
+  .date-title,
+  .date-title ion-icon {
+    color: #e5e7eb;
   }
 
 }

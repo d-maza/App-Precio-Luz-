@@ -20,10 +20,10 @@
     </ion-toolbar>
   </ion-header>
   <ion-content id="body" [fullscreen]="true">
-    <ion-card class="glossy">
+    <ion-card class="glossy hero-card same-width">
       <ion-img [src]="image"></ion-img>
       <ion-card-header>
-        <ion-card-title
+        <ion-card-title class="date-title"
           >{{ newDay }} <ion-icon name="calendar-outline"></ion-icon
         ></ion-card-title>
       </ion-card-header>
@@ -33,37 +33,37 @@
           Precio en este instante
           <strong>{{ horaActual }}.h</strong>
         </p>
-        <ion-title color="tertiary">{{precioActual()}} €/MWh </ion-title>
+        <ion-title color="tertiary">{{ preciosHoy.length ? precioActual() : 0 }} €/MWh </ion-title>
       </ion-card-content>
     </ion-card>
 
-    <ion-card>
+    <ion-card class="summary-card same-width">
       <ion-card-content >
         <p>Precio medio del dia de hoy</p>
-        <ion-title color="medium">{{percioMedio}}€/MWh</ion-title>
+        <ion-title color="medium">{{ preciosHoy.length ? percioMedio : 0 }} €/MWh</ion-title>
       </ion-card-content>
     </ion-card>
 
-    <ion-card>
+    <ion-card class="summary-card same-width">
       <ion-card-content>
         <p>
           La más barata:
-          <strong>{{horaBarata()}} a {{horaBarata()+1}} h.</strong>
+          <strong>{{ preciosHoy.length ? horaBarata() : 0 }} a {{ preciosHoy.length ? horaBarata() + 1 : 1 }} h.</strong>
         </p>
-        <ion-title color="success">{{priceMin}} €/MWh</ion-title>
+        <ion-title color="success">{{ preciosHoy.length ? priceMin : 0 }} €/MWh</ion-title>
       </ion-card-content>
     </ion-card>
 
-    <ion-card>
+    <ion-card class="summary-card same-width">
       <ion-card-content>
         <p>
-          La más cara: <strong>{{horaCara()}} a {{horaCara()+1}} h.</strong>
+          La más cara: <strong>{{ preciosHoy.length ? horaCara() : 0 }} a {{ preciosHoy.length ? horaCara() + 1 : 1 }} h.</strong>
         </p>
-        <ion-title color="danger">{{priceMax}} €/MWh</ion-title>
+        <ion-title color="danger">{{ preciosHoy.length ? priceMax : 0 }} €/MWh</ion-title>
       </ion-card-content>
     </ion-card>
 
-    <ion-list [inset]="true">
+    <ion-list [inset]="false" class="same-width">
       <ion-item *ngFor="let item of preciosHoy; index as i">
         <ion-label>
           <ion-row
@@ -95,13 +95,13 @@
       </ion-item>
     </ion-list>
     <ion-title id="footer" class="ion-text-start"> <p>DiveCode™</p> </ion-title>
-  </ion-content>
 
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button href="https://github.com/d-maza">
-      <ion-icon name="logo-octocat"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button href="https://github.com/d-maza">
+        <ion-icon name="logo-octocat"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
 </div>
 <script>
   let toggle = document.getElementById("toggle");

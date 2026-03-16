@@ -52,7 +52,7 @@ Generate production build:
 npm run build
 ```
 
-## Docker + Nginx
+## Docker
 
 Build image:
 

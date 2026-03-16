@@ -25,4 +25,22 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+/* Vista desktop: simula formato móvil centrado */
+@media (min-width: 600px) {
+  body {
+    background: #1a1a2e;
+  }
+
+  app-root {
+    display: block;
+    max-width: 430px;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100dvh;
+    position: relative;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+  }
+}
+
 

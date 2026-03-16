@@ -17,4 +17,10 @@ COPY --from=build /app/www /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD sh -c 'echo "" && \
+	echo "╔══════════════════════════════════════╗" && \
+	echo "║   App Precio Luz disponible en:      ║" && \
+	echo "║   http://localhost:8080              ║" && \
+	echo "╚══════════════════════════════════════╝" && \
+	echo "" && \
+	nginx -g "daemon off;"'

@@ -2,49 +2,67 @@
 
 ## Description
 
-A mobile application developed with Ionic 7 that consumes the REE (Red Electrica Estatal - Spain)  API to provide you with hourly pricing.
- 
-You can see the cheapest price of the day to schedule your laundry activities 💸.😅
+Mobile app built with Ionic + Angular that consumes the REE (Red Electrica de Espana) API to show electricity prices by hour.
 
-Oh, and of course, also in dark mode to help you save battery on your mobile device 🔋😝
+You can quickly see current price, daily average, cheapest hour, and most expensive hour.
+
+It also includes light/dark mode for better readability.
+
 <hr>
-<img width="80%" src="./src/assets/Ahorra_luz.png"  alt="image app" />
+<img width="80%" src="./src/assets/Ahorra_luz.png" alt="image app" />
 
-<br>
+## Tech Stack
 
-## Starting 🚀
+- Ionic Angular: 8.8.1
+- Angular: 20.3.18
+- Angular CLI: 20.3.20
+- Ionic Angular Toolkit: 12.3.0
+- TypeScript: 5.9.3
 
-clone the repository
+## Getting Started
 
-```https://github.com/d-maza/App-Precio-Luz-.git```
+Clone the repository:
 
-### Installation 🔧
+```bash
+git clone https://github.com/d-maza/App-Precio-Luz-.git
+cd App-Precio-Luz-
+```
 
-Install the dependencies
+Install dependencies:
 
-```npm install```
+```bash
+npm install
+```
 
+## Development
 
-### Development server 💻
+Start local dev server:
 
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+npm run start
+```
 
+Then open: http://localhost:4200/
 
-### Build 🛠️
+## Build
 
-Run `npm build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Generate production build:
 
-### Contributing 🖇️
+```bash
+npm run build
+```
 
-Pull requests and issues are welcome
+## Contributing
 
-### License 📄
+Pull requests and issues are welcome.
 
-This project is under the License (MIT)
+## License
 
-### Author ✒️
+MIT
 
-* **David Maza** - [d-maza](https://github.com/d-maza)
+## Author
+
+- David Maza - [d-maza](https://github.com/d-maza)
 
 
 

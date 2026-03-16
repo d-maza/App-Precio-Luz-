@@ -1,0 +1,24 @@
+{
+  "name": "App Precio Luz Dev",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+  "postCreateCommand": "npm ci",
+  "remoteEnv": {
+    "CHOKIDAR_USEPOLLING": "true"
+  },
+  "forwardPorts": [4200],
+  "portsAttributes": {
+    "4200": {
+      "label": "Ionic Dev Server",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "angular.ng-template",
+        "dbaeumer.vscode-eslint",
+        "ionic.ionic"
+      ]
+    }
+  }
+}

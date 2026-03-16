@@ -52,6 +52,26 @@ Generate production build:
 npm run build
 ```
 
+## Docker + Nginx
+
+Build image:
+
+```bash
+docker build -t app-precio-luz .
+```
+
+Run container exposing the app on port 8080:
+
+```bash
+docker run --rm -p 8080:80 --name app-precio-luz app-precio-luz
+```
+
+Open in browser:
+
+```text
+http://localhost:8080
+```
+
 ## Contributing
 
 Pull requests and issues are welcome.

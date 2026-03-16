@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Bombilla">
+  <defs>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe37a"/>
+      <stop offset="100%" stop-color="#f7b500"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="26" r="18" fill="url(#glass)" stroke="#b36b00" stroke-width="2"/>
+  <rect x="24" y="41" width="16" height="9" rx="2" fill="#8a8f98"/>
+  <rect x="23" y="50" width="18" height="7" rx="2" fill="#5d6169"/>
+  <path d="M25 29c1.5-5.5 4.5-8 7-8s5.5 2.5 7 8" fill="none" stroke="#fff7d4" stroke-width="2" stroke-linecap="round"/>
+  <g stroke="#f7b500" stroke-width="2" stroke-linecap="round">
+    <path d="M32 3v6"/>
+    <path d="M14 10l4 4"/>
+    <path d="M50 10l-4 4"/>
+    <path d="M8 26h6"/>
+    <path d="M50 26h6"/>
+  </g>
+</svg>

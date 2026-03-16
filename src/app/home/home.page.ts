@@ -1,9 +1,12 @@
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
-import { RefresherCustomEvent } from '@ionic/angular';
+import { IonicModule, RefresherCustomEvent } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
+  imports: [CommonModule, FormsModule, IonicModule],
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -29,9 +32,6 @@ export class HomePage implements OnInit {
 
   newDay = this.data.getfechaActual();
 
-
-
-  constructor() { }
 
   get image(): string {
     return this.isDarkMode ? this.darkModeImage : this.lightModeImage;
